@@ -10,6 +10,7 @@ defmodule Flare do
 	def post(path, body \\ nil, query \\ []), do: request(path, "POST", body, query)
 	def put(path, body \\ nil, query \\ []), do: request(path, "PUT", body, query)
 	def patch(path, body \\ nil, query \\ []), do: request(path, "PATCH", body, query)
+	def delete(path, body \\ nil, query \\ []), do: request(path, "DELETE", body, query)
 
 	def request(path, method, body \\ nil, query \\ []) do
 		url =
