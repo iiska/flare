@@ -7,6 +7,8 @@ defmodule Flare.Mixfile do
       version: "0.1.0",
       elixir: "~> 1.5",
       start_permanent: Mix.env == :prod,
+      description: description(),
+      package: package(),
       deps: deps()
     ]
   end
@@ -26,6 +28,19 @@ defmodule Flare.Mixfile do
       {:poison, "~> 3.1"},
       {:httpipe_adapters_hackney, "~> 0.9"},
       {:httpipe, "~> 0.9"},
+      {:ex_doc, ">= 0.0.0", only: :dev}
+    ]
+  end
+
+  defp description do
+    "Elixir client for CloudFlare v4 API"
+  end
+
+  defp package do
+    [
+      files: ~w(lib .formatter.exs mix.exs README*),
+      licenses: ["MIT"],
+      links: %{"GitHub" => "https://github.com/duksis/flare"}
     ]
   end
 end

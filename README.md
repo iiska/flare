@@ -1,6 +1,6 @@
 # Flare
 
-**TODO: Add description**
+Elixir client for CloudFlare v4 API
 
 ## Installation
 
