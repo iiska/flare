@@ -10,7 +10,7 @@ by adding `flare` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:flare, "~> 0.1.1"}
+    {:flare, "~> 0.1.2"}
   ]
 end
 ```
