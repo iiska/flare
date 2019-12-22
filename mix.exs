@@ -6,7 +6,7 @@ defmodule Flare.Mixfile do
       app: :flare,
       version: "0.1.1",
       elixir: "~> 1.5",
-      start_permanent: Mix.env == :prod,
+      start_permanent: Mix.env() == :prod,
       description: description(),
       package: package(),
       deps: deps()
