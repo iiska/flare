@@ -68,6 +68,9 @@ defmodule Flare do
         ]
       } ->
         {:error, {code, message}}
+
+      result ->
+        result
     end
   end
 
