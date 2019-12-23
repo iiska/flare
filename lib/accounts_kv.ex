@@ -2,7 +2,7 @@ defmodule Flare.Accounts.KV do
   def namespaces(account, params \\ []),
     do: Flare.get("accounts/#{account}/storage/kv/namespaces")
 
-  def namespace_keys(account, namespace, params \\ []) do
+  def keys(account, namespace, params \\ []) do
     Flare.get("accounts/#{account}/storage/kv/namespaces/#{namespace}/keys")
   end
 
