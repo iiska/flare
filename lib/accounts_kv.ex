@@ -18,7 +18,7 @@ defmodule Flare.Accounts.KV do
     Flare.put("accounts/#{account}/storage/kv/namespaces/#{namespace}/bulk", keys)
   end
 
-  def delete(account, namespace, key) when is_binary?(key) do
+  def delete(account, namespace, key) when is_binary(key) do
     Flare.delete("accounts/#{account}/storage/kv/namespaces/#{namespace}/values/#{key}")
   end
 
