@@ -2,6 +2,14 @@ defmodule Flare.Accounts.KV do
   def namespaces(account, params \\ []),
     do: Flare.get("accounts/#{account}/storage/kv/namespaces")
 
+  def create_namespace(account, title) do
+    Flare.post("accounts/#{account}/storage/kv/namespaces", %{title: title})
+  end
+
+  def delete_namespace(account, namespace) do
+    Flare.delete("accounts/#{account}/storage/kv/namespaces/#{namespace}")
+  end
+
   def keys(account, namespace, params \\ []) do
     Flare.get("accounts/#{account}/storage/kv/namespaces/#{namespace}/keys")
   end
