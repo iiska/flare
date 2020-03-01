@@ -5,6 +5,7 @@ defmodule Flare do
   def base, do: @base
   def key, do: Application.get_env(:flare, :key)
   def email, do: Application.get_env(:flare, :email)
+  def api_token, do: Application.get_env(:flare, :api_token)
 
   def get(path, query \\ []), do: request(path, "GET", nil, query)
   def post(path, body \\ nil, query \\ []), do: request(path, "POST", body, query)
@@ -24,8 +25,14 @@ defmodule Flare do
       |> Conn.put_req_url(url)
       |> Conn.put_req_method(method)
       |> Conn.put_req_header("Content-Type", "application/json")
-      |> Conn.put_req_header("X-Auth-Key", key())
-      |> Conn.put_req_header("X-Auth-Email", email())
+
+    conn =
+      if api_token() do
+        Conn.put_req_header(conn, "Authorization", "Bearer #{api_token()}")
+      else
+        Conn.put_req_header(conn, "X-Auth-Key", key())
+        |> Conn.put_req_header("X-Auth-Email", email())
+      end
 
     conn =
       if body do
